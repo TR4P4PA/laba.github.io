@@ -1,39 +1,64 @@
-let audio = new Audio();
-let currentTrackIndex = 0;
-
+// Массив с треками
 const tracks = [
-    { src: '1.mp3', name: 'Track 1', artist: 'Artist 1', img: '1.jpg' },
-    { src: '2.mp3', name: 'Track 2', artist: 'Artist 2', img: '2.jpg' },
-    { src: '3.mp3', name: 'Track 3', artist: 'Artist 3', img: '3.jpg' }
+    { src: "1.mp3", artist: "Artist 1", name: "Track 1", image: "1.jpg" },
+    { src: "2.mp3", artist: "Artist 2", name: "Track 2", image: "2.jpg" },
+    { src: "3.mp3", artist: "Artist 3", name: "Track 3", image: "3.jpg" }
 ];
 
-function loadTrack(index) {
-    audio.src = tracks[index].src;
-    document.getElementById('track-image').src = tracks[index].img;
-    document.getElementById('track-name').textContent = tracks[index].name;
-    document.getElementById('artist-name').textContent = tracks[index].artist;
+let currentTrackIndex = 0;
+let audio = new Audio(tracks[currentTrackIndex].src);
+
+const playButton = document.getElementById("play");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+const trackImage = document.getElementById("track-image");
+const artistName = document.getElementById("artist-name");
+const trackName = document.getElementById("track-name");
+const trackDuration = document.getElementById("track-duration");
+
+// Функция для обновления информации о текущем треке
+function updateTrackInfo() {
+    artistName.textContent = tracks[currentTrackIndex].artist;
+    trackName.textContent = tracks[currentTrackIndex].name;
+    trackImage.src = tracks[currentTrackIndex].image;
+    audio.src = tracks[currentTrackIndex].src;
     audio.load();
+    trackDuration.textContent = formatTime(audio.duration);
 }
 
-document.getElementById('play').addEventListener('click', function() {
+// Форматирование времени
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Кнопка Play/Pause
+playButton.addEventListener("click", () => {
     if (audio.paused) {
         audio.play();
+        playButton.textContent = "❚❚";  // Изменить на паузу
     } else {
         audio.pause();
+        playButton.textContent = "►";   // Изменить на play
     }
 });
 
-document.getElementById('next').addEventListener('click', function() {
+// Кнопка "Следующий трек"
+nextButton.addEventListener("click", () => {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-    loadTrack(currentTrackIndex);
+    updateTrackInfo();
     audio.play();
+    playButton.textContent = "❚❚";  // Изменить на паузу
 });
 
-document.getElementById('prev').addEventListener('click', function() {
+// Кнопка "Предыдущий трек"
+prevButton.addEventListener("click", () => {
     currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-    loadTrack(currentTrackIndex);
+    updateTrackInfo();
     audio.play();
+    playButton.textContent = "❚❚";  // Изменить на паузу
 });
 
-// Initialize the first track
-loadTrack(currentTrackIndex);
+// Обновить информацию при загрузке страницы
+updateTrackInfo();
