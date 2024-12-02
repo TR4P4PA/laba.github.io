@@ -2,7 +2,8 @@
 const tracks = [
     { src: "audio/1.mp3", artist: "Artist 1", name: "Track 1", image: "images/1.jpg" },
     { src: "audio/2.mp3", artist: "Artist 2", name: "Track 2", image: "images/2.jpg" },
-    { src: "audio/3.mp3", artist: "Artist 3", name: "Track 3", image: "images/3.jpg" }
+    { src: "audio/3.mp3", artist: "Artist 3", name: "Track 3", image: "images/3.jpg" },
+    { src: "audio/4.mp3", artist: "Artist 4", name: "Track 4", image: "images/4.jpg" }
 ];
 
 let currentTrackIndex = 0;
