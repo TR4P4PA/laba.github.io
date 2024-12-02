@@ -1,6 +1,6 @@
 /* Добавление фонового изображения для всей страницы */
 body {
-    background-image: url('images/bg.png');  /* Указываем путь к изображению */
+    background-image: url('images/back.jpg');  /* Указываем путь к изображению */
     background-size: cover;  /* Фон будет покрывать всю страницу */
     background-position: center center;  /* Центрируем фон */
     background-repeat: no-repeat;  /* Запрещаем повторение изображения */
