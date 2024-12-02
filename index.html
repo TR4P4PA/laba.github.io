@@ -5,13 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        /* Добавление фонового изображения для всей страницы */
+        body {
+            background-image: url('images/bg.png');  /* Указываем путь к изображению */
+            background-size: cover;  /* Фон будет покрывать всю страницу */
+            background-position: center center;  /* Центрируем фон */
+            background-repeat: no-repeat;  /* Запрещаем повторение изображения */
+            margin: 0;  /* Убираем отступы */
+            height: 100vh;  /* Фон будет занимать всю высоту страницы */
+        }
+
+        #player {
+            text-align: center;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.7);  /* Прозрачный фон плеера */
+            padding: 20px;
+            border-radius: 10px;  /* Скругление углов */
+        }
+
+        #track-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        #track-info p {
+            margin: 5px;
+            font-size: 18px;
+        }
+
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div id="player">
         <button id="prev">◁</button>
         <button id="play">►</button>
         <button id="next">▷</button>
-        <img id="track-image" src="bg.png" alt="Track Image">
+        <img id="track-image" src="images/bg.png" alt="Track Image">
         <div id="track-info">
             <p id="artist-name">Artist Name</p>
             <p id="track-name">Track Name</p>
