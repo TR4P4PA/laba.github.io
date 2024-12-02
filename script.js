@@ -1,8 +1,8 @@
 // Массив с треками
 const tracks = [
-    { src: "1.mp3", artist: "Artist 1", name: "Track 1", image: "1.jpg" },
-    { src: "2.mp3", artist: "Artist 2", name: "Track 2", image: "2.jpg" },
-    { src: "3.mp3", artist: "Artist 3", name: "Track 3", image: "3.jpg" }
+    { src: "audio/1.mp3", artist: "Artist 1", name: "Track 1", image: "images/1.jpg" },
+    { src: "audio/2.mp3", artist: "Artist 2", name: "Track 2", image: "images/2.jpg" },
+    { src: "audio/3.mp3", artist: "Artist 3", name: "Track 3", image: "images/3.jpg" }
 ];
 
 let currentTrackIndex = 0;
